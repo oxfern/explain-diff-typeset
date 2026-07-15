@@ -1,5 +1,9 @@
 # explain-typeset skills
 
+```bash
+npx skills add oxfern/explain-diff-typeset
+```
+
 Two agent skills that turn code understanding into rich, self-contained HTML explainers — background, intuition, walkthrough, and an interactive quiz — styled after [shadcn/ui Typeset](https://ui.shadcn.com/docs/typeset).
 
 | Skill | Use for |
@@ -25,6 +29,8 @@ python3 <skill>/scripts/render.py explanation.md
 Output goes to `/tmp/YYYY-MM-DD-explanation-<slug>.html` (or `-o <path>`). See the docstring in `scripts/render.py` for the exact quiz syntax.
 
 ## Agent installation
+
+The one-liner above installs both skills for your agents via [`npx skills`](https://github.com/vercel-labs/skills) (Claude Code, Codex, Cursor, and others). Manual alternatives:
 
 - **Hermes**: copy a skill folder to `~/.hermes/skills/software-development/<skill>/`
 - **Claude Code**: copy to `~/.claude/skills/<skill>/`
