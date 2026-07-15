@@ -1,6 +1,11 @@
-# explain-diff-typeset
+# explain-typeset skills
 
-An agent skill that turns a code change (diff, branch, commit range, or PR) into a rich, self-contained HTML explainer — background, intuition, code walkthrough, and an interactive quiz — styled after [shadcn/ui Typeset](https://ui.shadcn.com/docs/typeset).
+Two agent skills that turn code understanding into rich, self-contained HTML explainers — background, intuition, walkthrough, and an interactive quiz — styled after [shadcn/ui Typeset](https://ui.shadcn.com/docs/typeset).
+
+| Skill | Use for |
+|---|---|
+| [`explain-diff-typeset`](explain-diff-typeset/SKILL.md) | A specific change: diff, branch, commit range, or PR |
+| [`explain-code-question`](explain-code-question/SKILL.md) | General questions: "how does auth work here?", "why is this structured this way?" |
 
 Based on [Geoffrey Litt's explain-diff recipe](https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524), incorporating the quiz-quality and boilerplate-factoring feedback from its comment threads:
 
@@ -14,18 +19,18 @@ Write the explanation as Markdown (first `# H1` is the title; a `## Quiz` sectio
 
 ```bash
 pip install markdown
-python3 scripts/render.py explanation.md
+python3 <skill>/scripts/render.py explanation.md
 ```
 
 Output goes to `/tmp/YYYY-MM-DD-explanation-<slug>.html` (or `-o <path>`). See the docstring in `scripts/render.py` for the exact quiz syntax.
 
 ## Agent installation
 
-- **Hermes**: copy this folder to `~/.hermes/skills/software-development/explain-diff-typeset/`
-- **Claude Code**: copy to `~/.claude/skills/explain-diff-typeset/`
-- **Codex**: paste the Procedure from `SKILL.md` into `~/.codex/prompts/explain-diff-typeset.md`
+- **Hermes**: copy a skill folder to `~/.hermes/skills/software-development/<skill>/`
+- **Claude Code**: copy to `~/.claude/skills/<skill>/`
+- **Codex**: paste the Procedure from the skill's `SKILL.md` into `~/.codex/prompts/<skill>.md`
 
-The renderer is agent-agnostic; `SKILL.md` carries the full procedure and quality bar.
+The renderer is agent-agnostic; each `SKILL.md` carries the full procedure and quality bar.
 
 ## License
 
